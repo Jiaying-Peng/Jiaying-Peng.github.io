@@ -1,11 +1,24 @@
+{% comment %}
+  设置基本路径
+{% endcomment %}
 {% include base_path %}
 
+{% comment %}
+  处理文章的缩略图 (teaser)
+  如果文章元数据中定义了 header.teaser，则使用它
+  否则，使用站点配置中的默认 teaser
+{% endcomment %}
 {% if post.header.teaser %}
   {% capture teaser %}{{ post.header.teaser }}{% endcapture %}
 {% else %}
   {% assign teaser = site.teaser %}
 {% endif %}
 
+{% comment %}
+  处理文章标题
+  如果文章有 ID (通常是 collection 中的文档)，则对标题进行 Markdown 渲染并移除 <p> 标签
+  否则，直接使用文章标题
+{% endcomment %}
 {% if post.id %}
   {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
 {% else %}
@@ -14,6 +27,9 @@
 
 <div class="{{ include.type | default: "list" }}__item">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    {% comment %}
+      如果视图类型是 grid 并且有缩略图，则显示缩略图
+    {% endcomment %}
     {% if include.type == "grid" and teaser %}
       <div class="archive__item-teaser">
         <img src=
@@ -27,6 +43,17 @@
     {% endif %}
 
     <h2 class="archive__item-title" itemprop="headline">
+      {% comment %}
+        在文章标题前添加年份，格式为 [YYYY-MM]
+      {% endcomment %}
+      {% if post.date %}
+        [{{ post.date | date: "%Y-%m" }}] 
+      {% endif %}
+      {% comment %}
+        处理文章标题链接
+        如果定义了 post.link，则标题链接到外部链接，并提供一个永久链接到站内文章页面
+        否则，标题直接链接到站内文章页面
+      {% endcomment %}
       {% if post.link %}
         <a href="{{ post.link }}">{{ title }}</a> <a href="{{ base_path }}{{ post.url }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
       {% else %}
@@ -34,50 +61,47 @@
       {% endif %}
     </h2>
     
+    {% comment %}
+      如果定义了阅读时间，则显示
+    {% endcomment %}
     {% if post.read_time %}
       <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> {% include read-time.html %}</p>
     {% endif %}
 
-        {% if post.collection == 'teaching' %}
-          <p> {{ post.type }}, <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </p>
-        {% elsif post.collection == 'publications' %}
-          <p>Published in <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </p>
-        {% elsif post.date %}
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
-        {% endif %}
+    {% comment %}
+      根据 collection 类型显示不同的元信息
+      - teaching: 显示类型、地点和年份
+      - publications: 显示发表期刊、年份，并在后面附加 DOI 链接
+      - 其他: 显示完整的发布日期
+    {% endcomment %}
+    {% if post.collection == 'teaching' %}
+      <p> {{ post.type }}, <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </p>
+    {% elsif post.collection == 'publications' %}
+      <p>Published in <b><i>{{ post.venue }}</i></b>, {{ post.date | default: "1900-01-01" | date: "%Y" }}. {% if post.paperurl %}<a href="{{ post.paperurl }}">[DOI]</a>{% endif %}</p>
+    {% elsif post.date %}
+      <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
+    {% endif %}
 
+    {% comment %}
+      处理文章摘要
+      如果启用了 read_more，则显示摘要和 "Read more" 链接
+      否则，只显示摘要
+    {% endcomment %}
     {% if post.excerpt and site.read_more != 'enabled' %}
     <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
     {% elsif post.excerpt and site.read_more == 'enabled' %}
     <p class="archive__item-excerpt" itemprop="description"><p>{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}<strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong></p></p>
     {% endif %}
     
-    {% if post.citation and post.paperurl and post.slidesurl and post.bibtexurl %}
-      <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.paperurl }}">Download Paper</a> | <a href="{{ post.slidesurl }}">Download Slides</a> | <a href="{{ post.bibtexurl }}">Download Bibtex</a></p>
-    {% elsif post.citation and post.paperurl and post.slidesurl %}
-      <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.paperurl }}">Download Paper</a> | <a href="{{ post.slidesurl }}">Download Slides</a></p>
-    {% elsif post.citation and post.paperurl and post.bibtexurl %}
-      <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.paperurl }}">Download Paper</a> | <a href="{{ post.bibtexurl }}">Download Bibtex</a></p>
-    {% elsif post.citation and post.paperurl %}
-      <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.paperurl }}">Download Paper</a></p>
-    {% elsif post.citation and post.slidesurl and post.bibtexurl %}
-      <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.slidesurl }}">Download Slides</a> | <a href="{{ post.bibtexurl}}">Download Bibtex</a></p>
-    {% elsif post.citation and post.slidesurl %}
-      <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.slidesurl }}">Download Slides</a></p>
-    {% elsif post.citation and post.bibtexurl %}
-      <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.bibtexurl }}">Download Bibtex</a></p>
-    {% elsif post.citation %}
-      <p>Recommended citation: {{ post.citation }}</p>
-    {% elsif post.paperurl and post.bibtexurl %}
-      <p><a href=" {{ post.paperurl }} ">Download Paper</a> | <a href="{{ post.bibtexurl }}">Download Bibtex</a></p>
-    {% elsif post.paperurl %}
-      <p><a href=" {{ post.paperurl }} ">Download Paper</a></p>
-    {% elsif post.slidesurl and post.bibtexurl %}
-      <p><a href="{{ post.slidesurl }}">Download Slides</a> | <a href="{{ post.bibtexurl }}">Download Bibtex</a></p>
-    {% elsif post.slidesurl %}
-      <p><a href="{{ post.slidesurl }}">Download Slides</a></p>
-    {% elsif post.bibtexurl %}
-      <p><a href="{{ post.bibtexurl }}">Download Bibtex</a></p>
+    {% comment %}
+      处理引文、幻灯片和BibTeX链接
+    {% endcomment %}
+    {% if post.citation or post.slidesurl or post.bibtexurl %}
+      <p>
+        {% if post.citation %}Recommended citation: {{ post.citation }}<br />{% endif %}
+        {% if post.slidesurl %}<a href="{{ post.slidesurl }}">Download Slides</a>{% if post.bibtexurl %} | {% endif %}{% endif %}
+        {% if post.bibtexurl %}<a href="{{ post.bibtexurl }}">Download Bibtex</a>{% endif %}
+      </p>
     {% endif %}
 
   </article>
