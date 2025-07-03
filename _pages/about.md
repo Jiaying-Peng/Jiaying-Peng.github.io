@@ -9,12 +9,11 @@ redirect_from:
 
 I am pursuing a doctoral degree at [Beijing University of Chemical Technology](https://english.buct.edu.cn/main.htm), under the guidance of Professor [Wang Feng](https://cmse.buct.edu.cn/2020/1102/c8340a136126/page.htm).
 
-My work focuses on  nanomaterials for: 
+My work focuses on  nanomaterials for:
 
-* energy storage
-* high-performance batteries
-* solid-state electrolytes
+* Solid electrolyte, gel electrolyte
+* lithium metal anode, zinc metal anode, silicon-carbon anode
 
-You can click on the "CV" tab in the navigation bar to view my resume, or click "[download](/CV_JiayingP.pdf)" to download the static resume file.
+You can click on the "CV" tab in the navigation bar to view my resume, or [click here](/CV_JiayingP.pdf) to download the static resume file.
 
 📅 Last Update: 07-03-2025

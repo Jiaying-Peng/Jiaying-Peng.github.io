@@ -44,12 +44,6 @@
 
     <h2 class="archive__item-title" itemprop="headline">
       {% comment %}
-        在文章标题前添加年份，格式为 [YYYY-MM]
-      {% endcomment %}
-      {% if post.date %}
-        [{{ post.date | date: "%Y-%m" }}] 
-      {% endif %}
-      {% comment %}
         处理文章标题链接
         如果定义了 post.link，则标题链接到外部链接，并提供一个永久链接到站内文章页面
         否则，标题直接链接到站内文章页面
@@ -69,17 +63,17 @@
     {% endif %}
 
     {% comment %}
+      统一日期显示格式为 "Month Day, Year"
+    {% endcomment %}
+    {% if post.date %}<p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> {{ post.date | date: '%B %d, %Y' }}</p>{% endif %}
+
+    {% comment %}
       根据 collection 类型显示不同的元信息
-      - teaching: 显示类型、地点和年份
-      - publications: 显示发表期刊、年份，并在后面附加 DOI 链接
-      - 其他: 显示完整的发布日期
     {% endcomment %}
     {% if post.collection == 'teaching' %}
-      <p> {{ post.type }}, <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </p>
+      <p class="archive__item-excerpt" itemprop="description">{{ post.type }}, <i>{{ post.venue }}</i>{% if post.location %}, {{ post.location }}{% endif %}</p>
     {% elsif post.collection == 'publications' %}
-      <p>Published in <b><i>{{ post.venue }}</i></b>, {{ post.date | default: "1900-01-01" | date: "%Y" }}. {% if post.paperurl %}<a href="{{ post.paperurl }}">[DOI]</a>{% endif %}</p>
-    {% elsif post.date %}
-      <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
+      <p class="archive__item-excerpt" itemprop="description">Published in <b><i>{{ post.venue }}</i></b>{% if post.paperurl %} <a href="{{ post.paperurl }}">[DOI]</a>{% endif %}</p>
     {% endif %}
 
     {% comment %}
