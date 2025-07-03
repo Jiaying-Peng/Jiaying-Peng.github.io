@@ -11,9 +11,13 @@ redirect_from:
 
 ## Education
 
-* Ph.D in Beijing University of Chemical Technology, 2021-2026(expected)
+**Ph.D. in Materials Science and Engineering**
 
-* B.S. in Beijing University of Chemical Technology, 2017-2021
+* Beijing University of Chemical Technology, 2021 – 2026 (expected)
+
+**B.S. in Materials Science and Engineering**
+
+* Beijing University of Chemical Technology, 2017 – 2021
 
 ## Publications
 
@@ -27,6 +31,11 @@ redirect_from:
     {% include archive-single-talk-cv.html  %}
   {% endfor %}</ul>
   
+## Teaching
+
+  <ul>{% for post in site.teaching reversed %}
+    {% include archive-single-cv.html %}
+  {% endfor %}</ul>
   
 ## Honors and Awards
 

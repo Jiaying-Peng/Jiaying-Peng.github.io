@@ -16,14 +16,6 @@
   {% assign title = post.title %}
 {% endif %}
 
-{% comment %}
-  从日期中提取年月信息
-{% endcomment %}
-{% if post.date %}
-  {% assign year = post.date | date: "%Y" %}
-  {% assign month = post.date | date: "%m" %}
-{% endif %}
-
 <div class="{{ include.type | default: "list" }}__item">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     <li>
@@ -39,12 +31,6 @@
       </div>
     {% endif %}
     <h3 class="archive__item-title" itemprop="headline">
-      {% comment %}
-        在标题前添加年月信息 [YYYY-MM]
-      {% endcomment %}
-      {% if post.date %}
-        [{{ year }}-{{ month }}] 
-      {% endif %}
       {% if post.link %}
         <a href="{{ post.link }}">{{ title }}</a> <a href="{{ base_path }}{{ post.url }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
       {% else %}
@@ -55,11 +41,14 @@
       <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> {% include read-time.html %}</p>
     {% endif %}
     {% comment %}
-      显示期刊信息，加粗期刊名称，添加DOI链接
+      根据不同的集合类型显示不同的信息
     {% endcomment %}
-    {% if post.venue %}
+    {% if post.date %}<p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> {{ post.date | date: '%B %d, %Y' }}</p>{% endif %}
+    {% if post.collection == 'teaching' %}
+      <p class="archive__item-excerpt" itemprop="description">{{ post.type }} at <strong>{{ post.venue }}</strong>, {{ post.location }}</p>
+    {% elsif post.collection == 'publications' and post.venue %}
       <p class="archive__item-excerpt" itemprop="description">
-        Published in <strong>{{ post.venue }}</strong>, {{ post.date | date: "%Y" }}
+        Published in <strong>{{ post.venue }}</strong>
         {% if post.paperurl %}
           <a href="{{ post.paperurl }}">[DOI]</a>
         {% endif %}
