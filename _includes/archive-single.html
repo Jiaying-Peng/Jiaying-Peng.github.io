@@ -71,7 +71,7 @@
       根据 collection 类型显示不同的元信息
     {% endcomment %}
     {% if post.collection == 'teaching' %}
-      <p class="archive__item-excerpt" itemprop="description">{{ post.type }}, <i>{{ post.venue }}</i>{% if post.location %}, {{ post.location }}{% endif %}</p>
+      <p class="archive__item-excerpt" itemprop="description">{{ post.type }}, <i></i>{{ post.venue }}</i>{% if post.location %}, {{ post.location }}{% endif %}</p>
     {% elsif post.collection == 'publications' %}
       <p class="archive__item-excerpt" itemprop="description">Published in <b><i>{{ post.venue }}</i></b>{% if post.paperurl %} <a href="{{ post.paperurl }}">[DOI]</a>{% endif %}</p>
     {% endif %}
