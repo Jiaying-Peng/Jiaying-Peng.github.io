@@ -16,4 +16,4 @@ My work focuses on  nanomaterials for:
 
 You can click on the "CV" tab in the navigation bar to view my resume, or [click here](/CV_JiayingP.pdf) to download the static resume file.
 
-📅 Last Update: 07-03-2025
+📅 Last Update: 07-24-2026
