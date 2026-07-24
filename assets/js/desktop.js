@@ -4,15 +4,28 @@
   const startMenu = document.getElementById("start-menu");
   const taskButtons = document.getElementById("task-buttons");
   const clock = document.getElementById("clock");
+  const clockDate = document.getElementById("clock-date");
+  const clockTime = document.getElementById("clock-time");
   const aboutDialog = document.getElementById("about-dialog");
   let topZ = 20;
 
   function setClock() {
     const now = new Date();
     clock.dateTime = now.toISOString();
-    clock.textContent = now.toLocaleTimeString([], {
-      hour: "numeric",
-      minute: "2-digit"
+    clock.title = now.toLocaleDateString("en-GB", {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      year: "numeric"
+    });
+    clockDate.textContent = now.toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "short"
+    });
+    clockTime.textContent = now.toLocaleTimeString("en-GB", {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false
     });
   }
 
