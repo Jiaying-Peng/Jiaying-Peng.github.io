@@ -40,6 +40,10 @@
         <img src="https://raw.githubusercontent.com/1j01/98/master/images/icons/network-32x32.png" alt="">
         <span>Academic Links</span>
       </button>
+      <button class="desktop-icon language-app" type="button" data-language-switch aria-label="Switch the desktop language to Chinese">
+        <img src="https://raw.githubusercontent.com/1j01/98/master/images/icons/internet-folder-32x32.png" alt="">
+        <span>Language</span>
+      </button>
     </div>
 
     <section class="window app-window hero-window is-open" id="profile-window" data-title="Jiaying Peng" data-icon="https://raw.githubusercontent.com/1j01/98/master/images/icons/info-16x16-8bpp.png" aria-label="About Jiaying Peng">
@@ -720,6 +724,10 @@
           <img src="https://raw.githubusercontent.com/1j01/98/master/images/icons/network-32x32.png" alt="">
           <span><strong>Academic Links</strong><small>Scholar · ORCID · GitHub</small></span>
         </button>
+        <button type="button" data-language-switch aria-label="Switch the desktop language to Chinese">
+          <img src="https://raw.githubusercontent.com/1j01/98/master/images/icons/internet-folder-32x32.png" alt="">
+          <span><strong>Language</strong><small>Restart in Chinese</small></span>
+        </button>
         <button type="button" id="shutdown-button">
           <img src="https://raw.githubusercontent.com/1j01/98/master/images/icons/shutdown-32x32.png" alt="">
           <span><strong>About this site...</strong><small>Windows 98 academic edition</small></span>
@@ -761,6 +769,17 @@
     <div class="dialog-actions"><button type="button" id="about-ok">OK</button></div>
   </div>
 
+  <div class="reboot-screen" id="reboot-screen" hidden aria-live="assertive" aria-busy="true" data-i18n-ignore>
+    <div class="reboot-card">
+      <img src="https://raw.githubusercontent.com/1j01/98/master/images/icons/windows-22x22-8bpp.png" alt="">
+      <p class="reboot-brand">Jiaying Peng <span>Academic Desktop</span></p>
+      <p class="reboot-message" id="reboot-message">Windows is restarting...</p>
+      <div class="reboot-progress" aria-hidden="true"><span></span></div>
+      <small id="reboot-hint">Please wait while your language settings are applied.</small>
+    </div>
+  </div>
+
+  <script src="assets/js/i18n.js"></script>
   <script src="assets/js/desktop.js"></script>
   <!-- Cloudflare Web Analytics -->
   <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"cb9b839286de4b18a28180c25cc8a56b"}'></script>

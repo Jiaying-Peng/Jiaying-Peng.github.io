@@ -11,6 +11,11 @@
   --small-size: 13px;
 }
 
+html[lang="zh-CN"] {
+  --font-ui: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", Tahoma, sans-serif;
+  --font-reading: "Songti SC", "STSong", "Noto Serif CJK SC", Georgia, serif;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -1637,6 +1642,101 @@ fieldset {
   text-align: center;
 }
 
+.reboot-screen {
+  position: fixed;
+  z-index: 30000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  color: #fff;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(16,132,208,.42), transparent 36%),
+    #000;
+  font-family: var(--font-ui);
+  opacity: 0;
+  transition: opacity 160ms linear;
+  cursor: wait;
+}
+
+.reboot-screen[hidden] {
+  display: none;
+}
+
+.reboot-screen.is-visible {
+  opacity: 1;
+}
+
+.reboot-card {
+  width: min(430px, 100%);
+  text-align: center;
+}
+
+.reboot-card > img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.reboot-brand {
+  margin: 13px 0 31px;
+  font-size: clamp(22px, 5vw, 34px);
+  font-weight: bold;
+  letter-spacing: -.4px;
+  text-shadow: 2px 2px #000080;
+}
+
+.reboot-brand span {
+  display: block;
+  margin-top: 4px;
+  color: #b9dcff;
+  font-size: 13px;
+  font-weight: normal;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.reboot-message {
+  margin: 0 0 12px;
+  font-size: 15px;
+}
+
+.reboot-progress {
+  height: 20px;
+  padding: 3px;
+  overflow: hidden;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #808080 #fff #fff #808080;
+}
+
+.reboot-progress span {
+  width: 36px;
+  height: 100%;
+  display: block;
+  background: #000080;
+  box-shadow: 8px 0 #1084d0, 16px 0 #000080;
+  animation: reboot-progress 1.2s steps(12, end) infinite;
+}
+
+.reboot-card small {
+  display: block;
+  margin-top: 12px;
+  color: #d8d8d8;
+  font-size: 12px;
+}
+
+body.is-restarting > :not(.reboot-screen) {
+  pointer-events: none;
+  user-select: none;
+}
+
+@keyframes reboot-progress {
+  from { transform: translateX(-70px); }
+  to { transform: translateX(430px); }
+}
+
 @media (max-width: 760px) {
   :root {
     --taskbar-height: 38px;
@@ -1654,14 +1754,14 @@ fieldset {
     inset: 7px 6px auto;
     width: calc(100% - 12px);
     grid-auto-flow: row;
-    grid-template-columns: repeat(3, 76px);
+    grid-template-columns: repeat(4, 70px);
     grid-template-rows: repeat(2, 70px);
     justify-content: space-around;
     gap: 2px;
   }
 
   .desktop-icon {
-    width: 76px;
+    width: 70px;
     height: 70px;
   }
 
@@ -1671,7 +1771,7 @@ fieldset {
   }
 
   .desktop-icon span {
-    width: 70px;
+    width: 68px;
   }
 
   .app-window,
@@ -1905,14 +2005,14 @@ fieldset {
     inset: 3px 6px auto;
     width: calc(100% - 12px);
     grid-auto-flow: row;
-    grid-template-columns: repeat(6, 78px);
+    grid-template-columns: repeat(7, 70px);
     grid-template-rows: 66px;
     justify-content: space-around;
     gap: 2px;
   }
 
   .desktop-icon {
-    width: 78px;
+    width: 70px;
     height: 64px;
     gap: 1px;
   }
@@ -1923,7 +2023,7 @@ fieldset {
   }
 
   .desktop-icon span {
-    width: 74px;
+    width: 68px;
     line-height: 14px;
   }
 
@@ -1957,6 +2057,14 @@ fieldset {
 @media (prefers-reduced-motion: reduce) {
   * {
     scroll-behavior: auto !important;
+  }
+
+  .reboot-screen {
+    transition: none;
+  }
+
+  .reboot-progress span {
+    animation-duration: .45s;
   }
 }
 

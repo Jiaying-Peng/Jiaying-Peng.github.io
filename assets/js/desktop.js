@@ -11,18 +11,20 @@
 
   function setClock() {
     const now = new Date();
+    const isChinese = document.documentElement.lang === "zh-CN";
+    const locale = isChinese ? "zh-CN" : "en-GB";
     clock.dateTime = now.toISOString();
-    clock.title = now.toLocaleDateString("en-GB", {
+    clock.title = now.toLocaleDateString(locale, {
       weekday: "long",
       day: "numeric",
       month: "long",
       year: "numeric"
     });
-    clockDate.textContent = now.toLocaleDateString("en-GB", {
+    clockDate.textContent = now.toLocaleDateString(locale, {
       day: "2-digit",
       month: "short"
     });
-    clockTime.textContent = now.toLocaleTimeString("en-GB", {
+    clockTime.textContent = now.toLocaleTimeString(locale, {
       hour: "2-digit",
       minute: "2-digit",
       hour12: false
@@ -68,6 +70,14 @@
       taskButtons.appendChild(taskButton);
     }
     return taskButton;
+  }
+
+  function updateTaskButtonLabels() {
+    document.querySelectorAll(".task-button").forEach((button) => {
+      const win = document.getElementById(button.dataset.window);
+      const label = button.querySelector("span");
+      if (win && label) label.textContent = win.dataset.title;
+    });
   }
 
   function openWindow(id) {
@@ -213,6 +223,11 @@
       closeStartMenu();
       closeAbout();
     }
+  });
+
+  document.addEventListener("academic-language-change", () => {
+    updateTaskButtonLabels();
+    setClock();
   });
 
   windows.filter((win) => win.classList.contains("is-open")).forEach((win) => {
