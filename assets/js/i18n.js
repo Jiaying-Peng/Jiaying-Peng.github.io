@@ -4,6 +4,17 @@
   const CHINESE = "zh-CN";
 
   const translations = {
+    "Dielectric superionic-conductor nanofibers for highly efficient multi-channel ion transport in solvent-lean PVDF-based electrolytes": "用于少溶剂 PVDF 基电解质高效多通道离子传输的介电超离子导体纳米纤维",
+    "Li, Sr-codoped hydroxyapatite nanofibers enable multi-channel ion transport in solvent-lean PVDF-based electrolytes.": "锂、锶共掺杂羟基磷灰石纳米纤维在少溶剂 PVDF 基电解质中实现多通道离子传输。",
+    "First-author paper in Energy & Environmental Science": "以第一作者在 Energy & Environmental Science 发表论文",
+    "2026 · Energy & Environmental Science": "2026 · Energy & Environmental Science",
+    "PAPER": "论文",
+    "(2026), first author. Dielectric superionic-conductor nanofibers for highly efficient multi-channel ion transport in solvent-lean PVDF-based electrolytes.": "（2026），第一作者。用于少溶剂 PVDF 基电解质高效多通道离子传输的介电超离子导体纳米纤维。",
+    "8 selected object(s)": "已选择 8 个对象",
+    "5 selected": "已选择 5 项",
+    "Updated 12 October 2026": "更新于 2026 年 10 月 12 日",
+    "Web CV · Updated 12 October 2026": "网页版简历 · 更新于 2026 年 10 月 12 日",
+
     "About Jiaying": "关于 Jiaying",
     "Research.txt": "研究方向.txt",
     "Publications": "科研成果",
