@@ -51,7 +51,8 @@ retro animation is available in Start. Basic content remains readable without JS
 - `assets/figures/`: original conceptual diagrams, **not experimental data**.
 - `assets/vendor/`: pinned 98.css 0.1.20 and its bundled fonts; MIT license included.
 
-No runtime CDN dependency is required for the interface. Cloudflare Analytics
+Local asset and citation URLs include content hashes to prevent stale CDN/browser
+caches from mixing releases. No runtime CDN dependency is required for the interface. Cloudflare Analytics
 remains optional external telemetry; a loaded script is not proof of ingestion.
 No portrait, private email address, unverified figure, performance number or
 personal contribution statement is invented. Scholarly links are retained.
