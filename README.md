@@ -28,12 +28,21 @@ approved.
 
 ## Published sites
 
-- Primary: https://jiaying-peng.github.io/
-- Mirror: https://minions.cyou/jiaying/
+- Primary: https://jiaying.minions.cyou/
+- GitHub Pages fallback: https://jiaying-peng.github.io/
+- Legacy: https://minions.cyou/jiaying/ redirects to the primary site.
 
-Both sites serve the same static files. Keep asset URLs relative so the mirror
-works below `/jiaying/`. GitHub Pages deploys `master`. The CloudCone mirror is
-an independent checkout at `/srv/jiaying-homepage`; update it to the same commit
-with `git -C /srv/jiaying-homepage pull --ff-only`. Caddy serves that directory
-using `handle_path /jiaying/*` and redirects `/jiaying` to `/jiaying/`.
-The knowledge-base application and its data are separate from this checkout.
+Both deployments serve the same static files and declare the subdomain as the
+canonical URL. Keep asset URLs relative. GitHub Pages deploys `master`.
+CloudCone serves an independent checkout at `/srv/jiaying-homepage`; update it
+to the same commit with `git -C /srv/jiaying-homepage pull --ff-only`.
+
+Caddy serves `jiaying.minions.cyou` from that directory with automatic HTTPS.
+The public homepage has its own site block, separate from the knowledge base
+and its `noindex` policy. The old `/jiaying/` route redirects permanently,
+preserving paths and query strings. Git metadata is not publicly served.
+
+For deployment, back up `/etc/caddy/Caddyfile`, validate any configuration changes
+before reloading Caddy, and verify HTTPS, redirects, static assets, repository
+commit parity, and `https://minions.cyou/api/health`. Do not redirect visitors to
+a new hostname until its DNS and HTTPS are working.
