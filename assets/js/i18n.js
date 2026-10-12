@@ -4,6 +4,12 @@
   const CHINESE = "zh-CN";
 
   const translations = {
+    ...window.publicationTranslations,
+    "Home": "首页", "Copy link": "复制链接", "Print CV": "打印简历",
+    "Read publications": "查看论文", "View / print CV": "查看／打印简历",
+    "Switch to Chinese": "切换为中文", "Skip to content": "跳到正文",
+    "Retro language animation": "复古语言切换动画",
+    "I design nanofiber-based electrolytes that connect ion transport, sustainable materials, and stable interfaces for lithium and zinc batteries.": "我研究纳米纤维电解质，将离子传输、可持续材料与稳定界面相结合，用于锂电池和锌电池。",
     "Dielectric superionic-conductor nanofibers for highly efficient multi-channel ion transport in solvent-lean PVDF-based electrolytes": "用于少溶剂 PVDF 基电解质高效多通道离子传输的介电超离子导体纳米纤维",
     "Li, Sr-codoped hydroxyapatite nanofibers enable multi-channel ion transport in solvent-lean PVDF-based electrolytes.": "锂、锶共掺杂羟基磷灰石纳米纤维在少溶剂 PVDF 基电解质中实现多通道离子传输。",
     "First-author paper in Energy & Environmental Science": "以第一作者在 Energy & Environmental Science 发表论文",
@@ -324,7 +330,7 @@
 
     while (node) {
       const parent = node.parentElement;
-      const ignored = !parent || parent.closest("script, style, noscript, .menu-bar, [data-i18n-ignore]");
+      const ignored = !parent || parent.closest("script, style, noscript, [data-en], [data-i18n-ignore]");
 
       if (!ignored && normalize(node.nodeValue)) {
         if (!originalText.has(node)) originalText.set(node, node.nodeValue);
@@ -394,7 +400,7 @@
     const startLabel = document.querySelector("#start-menu [data-language-switch] strong");
     const startHint = document.querySelector("#start-menu [data-language-switch] small");
     if (startLabel) startLabel.textContent = language === CHINESE ? "切换语言" : "Language";
-    if (startHint) startHint.textContent = language === CHINESE ? "重启并进入英文" : "Restart in Chinese";
+    if (startHint) startHint.textContent = language === CHINESE ? "切换为英文" : "Switch to Chinese";
   }
 
   function applyLanguage(language, announce = true) {
@@ -409,7 +415,7 @@
 
     translateTextNodes(language);
     translateAttributes(language);
-    translateMenus(language);
+    document.querySelectorAll("[data-en][data-zh]").forEach((element) => { element.textContent = language === CHINESE ? element.dataset.zh : element.dataset.en; });
     updateLanguageControls(language);
 
     if (announce) {
@@ -474,10 +480,15 @@
     button.addEventListener("click", (event) => {
       event.preventDefault();
       event.stopPropagation();
-      restartInto(currentLanguage === CHINESE ? ENGLISH : CHINESE);
+      switchLanguage();
     });
   });
 
+  function switchLanguage() {
+    const language = currentLanguage === CHINESE ? ENGLISH : CHINESE;
+    if (document.getElementById("retro-animation").checked) restartInto(language);
+    else { applyLanguage(language); saveLanguage(language); }
+  }
   applyLanguage(currentLanguage, false);
 
   window.academicDesktopI18n = {
@@ -485,7 +496,7 @@
       return currentLanguage;
     },
     switchLanguage() {
-      restartInto(currentLanguage === CHINESE ? ENGLISH : CHINESE);
+      switchLanguage();
     }
   };
 })();

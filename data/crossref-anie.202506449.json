@@ -1,0 +1,271 @@
+{
+  "DOI": "10.1002/anie.202506449",
+  "title": [
+    "Bone‐Inspired Sustainable Hydrogel Electrolytes for Zn Metal Batteries"
+  ],
+  "author": [
+    {
+      "given": "Jiaying",
+      "family": "Peng",
+      "sequence": "first",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering Laboratory of Electrochemical Process and Technology for Materials Beijing University of Chemical Technology  Beijing 100029 P.R. China"
+        },
+        {
+          "name": "National Engineering Research Center for Fuel Cell and Hydrogen Source Technology Beijing University of Chemical Technology  Beijing 100029 P.R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Weihao",
+      "family": "Song",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering Laboratory of Electrochemical Process and Technology for Materials Beijing University of Chemical Technology  Beijing 100029 P.R. China"
+        },
+        {
+          "name": "National Engineering Research Center for Fuel Cell and Hydrogen Source Technology Beijing University of Chemical Technology  Beijing 100029 P.R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Wei",
+      "family": "Zhang",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering Laboratory of Electrochemical Process and Technology for Materials Beijing University of Chemical Technology  Beijing 100029 P.R. China"
+        },
+        {
+          "name": "National Engineering Research Center for Fuel Cell and Hydrogen Source Technology Beijing University of Chemical Technology  Beijing 100029 P.R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Xinyu",
+      "family": "Li",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering Laboratory of Electrochemical Process and Technology for Materials Beijing University of Chemical Technology  Beijing 100029 P.R. China"
+        },
+        {
+          "name": "National Engineering Research Center for Fuel Cell and Hydrogen Source Technology Beijing University of Chemical Technology  Beijing 100029 P.R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Qing",
+      "family": "Ma",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering Laboratory of Electrochemical Process and Technology for Materials Beijing University of Chemical Technology  Beijing 100029 P.R. China"
+        },
+        {
+          "name": "National Engineering Research Center for Fuel Cell and Hydrogen Source Technology Beijing University of Chemical Technology  Beijing 100029 P.R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Bing",
+      "family": "Wu",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering Laboratory of Electrochemical Process and Technology for Materials Beijing University of Chemical Technology  Beijing 100029 P.R. China"
+        },
+        {
+          "name": "National Engineering Research Center for Fuel Cell and Hydrogen Source Technology Beijing University of Chemical Technology  Beijing 100029 P.R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Masatsugu",
+      "family": "Fujishige",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Research Initiative for Supra‐Materials Shinshu University  Nagano 380‐8553 Japan"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Kenji",
+      "family": "Takeuchi",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Research Initiative for Supra‐Materials Shinshu University  Nagano 380‐8553 Japan"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Morinobu",
+      "family": "Endo",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Research Initiative for Supra‐Materials Shinshu University  Nagano 380‐8553 Japan"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Chendong",
+      "family": "Ji",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering Laboratory of Electrochemical Process and Technology for Materials Beijing University of Chemical Technology  Beijing 100029 P.R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "ORCID": "https://orcid.org/0000-0001-9390-4030",
+      "authenticated-orcid": false,
+      "given": "Yilin",
+      "family": "Sun",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "School of Integrated Circuits and Electronics Beijing Institute of Technology  Beijing 100029 P.R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "ORCID": "https://orcid.org/0000-0002-0813-8974",
+      "authenticated-orcid": false,
+      "given": "Jin",
+      "family": "Niu",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering Laboratory of Electrochemical Process and Technology for Materials Beijing University of Chemical Technology  Beijing 100029 P.R. China"
+        },
+        {
+          "name": "National Engineering Research Center for Fuel Cell and Hydrogen Source Technology Beijing University of Chemical Technology  Beijing 100029 P.R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "ORCID": "https://orcid.org/0000-0002-7901-3693",
+      "authenticated-orcid": false,
+      "given": "Feng",
+      "family": "Wang",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering Laboratory of Electrochemical Process and Technology for Materials Beijing University of Chemical Technology  Beijing 100029 P.R. China"
+        },
+        {
+          "name": "National Engineering Research Center for Fuel Cell and Hydrogen Source Technology Beijing University of Chemical Technology  Beijing 100029 P.R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    }
+  ],
+  "container-title": [
+    "Angewandte Chemie International Edition"
+  ],
+  "published": {
+    "date-parts": [
+      [
+        2025,
+        7,
+        11
+      ]
+    ]
+  },
+  "published-online": {
+    "date-parts": [
+      [
+        2025,
+        7,
+        11
+      ]
+    ]
+  },
+  "volume": "64",
+  "issue": "34",
+  "article-number": "e202506449",
+  "URL": "https://doi.org/10.1002/anie.202506449"
+}

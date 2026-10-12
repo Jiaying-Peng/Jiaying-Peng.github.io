@@ -1,0 +1,166 @@
+{
+  "DOI": "10.1002/anie.202304339",
+  "title": [
+    "A Chemically Bonded Ultraconformal Layer between the Elastic Solid Electrolyte and Lithium Anode for High‐performance Lithium Metal Batteries"
+  ],
+  "author": [
+    {
+      "given": "Na",
+      "family": "Yang",
+      "sequence": "first",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering Beijing Key Laboratory of Electrochemical Process and Technology for Materials Beijing University of Chemical Technology  Beijing 100029 P. R. China"
+        },
+        {
+          "name": "Beijing Advanced Innovation Center for Soft Matter Science and Engineering Beijing University of Chemical Technology  Beijing 100029 P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Yujie",
+      "family": "Cui",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering Beijing Key Laboratory of Electrochemical Process and Technology for Materials Beijing University of Chemical Technology  Beijing 100029 P. R. China"
+        },
+        {
+          "name": "Beijing Advanced Innovation Center for Soft Matter Science and Engineering Beijing University of Chemical Technology  Beijing 100029 P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Hang",
+      "family": "Su",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering Beijing Key Laboratory of Electrochemical Process and Technology for Materials Beijing University of Chemical Technology  Beijing 100029 P. R. China"
+        },
+        {
+          "name": "Beijing Advanced Innovation Center for Soft Matter Science and Engineering Beijing University of Chemical Technology  Beijing 100029 P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Jiaying",
+      "family": "Peng",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering Beijing Key Laboratory of Electrochemical Process and Technology for Materials Beijing University of Chemical Technology  Beijing 100029 P. R. China"
+        },
+        {
+          "name": "Beijing Advanced Innovation Center for Soft Matter Science and Engineering Beijing University of Chemical Technology  Beijing 100029 P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Yongzheng",
+      "family": "Shi",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering Beijing Key Laboratory of Electrochemical Process and Technology for Materials Beijing University of Chemical Technology  Beijing 100029 P. R. China"
+        },
+        {
+          "name": "Beijing Advanced Innovation Center for Soft Matter Science and Engineering Beijing University of Chemical Technology  Beijing 100029 P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Jin",
+      "family": "Niu",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering Beijing Key Laboratory of Electrochemical Process and Technology for Materials Beijing University of Chemical Technology  Beijing 100029 P. R. China"
+        },
+        {
+          "name": "Beijing Advanced Innovation Center for Soft Matter Science and Engineering Beijing University of Chemical Technology  Beijing 100029 P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "ORCID": "https://orcid.org/0000-0002-7901-3693",
+      "authenticated-orcid": false,
+      "given": "Feng",
+      "family": "Wang",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering Beijing Key Laboratory of Electrochemical Process and Technology for Materials Beijing University of Chemical Technology  Beijing 100029 P. R. China"
+        },
+        {
+          "name": "Beijing Advanced Innovation Center for Soft Matter Science and Engineering Beijing University of Chemical Technology  Beijing 100029 P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    }
+  ],
+  "container-title": [
+    "Angewandte Chemie International Edition"
+  ],
+  "published": {
+    "date-parts": [
+      [
+        2023,
+        6
+      ]
+    ]
+  },
+  "published-online": {
+    "date-parts": [
+      [
+        2023,
+        6
+      ]
+    ]
+  },
+  "volume": "62",
+  "issue": "28",
+  "article-number": "e202304339",
+  "URL": "https://doi.org/10.1002/anie.202304339"
+}

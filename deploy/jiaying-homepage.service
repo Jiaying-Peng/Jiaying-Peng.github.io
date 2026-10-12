@@ -1,0 +1,16 @@
+[Unit]
+Description=Validate and publish Jiaying academic homepage
+After=network-online.target
+Wants=network-online.target
+[Service]
+Type=oneshot
+User=jiaying-deploy
+Group=jiaying-deploy
+UMask=0022
+ExecStart=/usr/bin/python3 /usr/local/libexec/jiaying-deploy.py
+TimeoutStartSec=180
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/srv/jiaying-site

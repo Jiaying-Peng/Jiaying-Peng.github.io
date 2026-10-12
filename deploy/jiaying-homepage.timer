@@ -1,0 +1,9 @@
+[Unit]
+Description=Keep Jiaying homepage synchronized with verified GitHub releases
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=5min
+RandomizedDelaySec=20s
+Persistent=true
+[Install]
+WantedBy=timers.target

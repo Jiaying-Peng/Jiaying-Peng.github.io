@@ -1,0 +1,242 @@
+{
+  "DOI": "10.1021/jacs.4c00882",
+  "title": [
+    "Lithium Superionic Conductive Nanofiber-Reinforcing High-Performance Polymer Electrolytes for Solid-State Batteries"
+  ],
+  "author": [
+    {
+      "given": "Jiaying",
+      "family": "Peng",
+      "sequence": "first",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering, Laboratory of Electrochemical Process and Technology for Materials, Beijing University of Chemical Technology, Beijing 100029, P. R. China"
+        },
+        {
+          "name": "Beijing Advanced Innovation Center for Soft Matter Science and Engineering, Beijing University of Chemical Technology, Beijing 100029, P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Dawei",
+      "family": "Lu",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering, Laboratory of Electrochemical Process and Technology for Materials, Beijing University of Chemical Technology, Beijing 100029, P. R. China"
+        },
+        {
+          "name": "Beijing Advanced Innovation Center for Soft Matter Science and Engineering, Beijing University of Chemical Technology, Beijing 100029, P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Shiqi",
+      "family": "Wu",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering, Laboratory of Electrochemical Process and Technology for Materials, Beijing University of Chemical Technology, Beijing 100029, P. R. China"
+        },
+        {
+          "name": "Beijing Advanced Innovation Center for Soft Matter Science and Engineering, Beijing University of Chemical Technology, Beijing 100029, P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Na",
+      "family": "Yang",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering, Laboratory of Electrochemical Process and Technology for Materials, Beijing University of Chemical Technology, Beijing 100029, P. R. China"
+        },
+        {
+          "name": "Beijing Advanced Innovation Center for Soft Matter Science and Engineering, Beijing University of Chemical Technology, Beijing 100029, P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Yujie",
+      "family": "Cui",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering, Laboratory of Electrochemical Process and Technology for Materials, Beijing University of Chemical Technology, Beijing 100029, P. R. China"
+        },
+        {
+          "name": "Beijing Advanced Innovation Center for Soft Matter Science and Engineering, Beijing University of Chemical Technology, Beijing 100029, P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Zhaokun",
+      "family": "Ma",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering, Laboratory of Electrochemical Process and Technology for Materials, Beijing University of Chemical Technology, Beijing 100029, P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Mengyue",
+      "family": "Liu",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering, Laboratory of Electrochemical Process and Technology for Materials, Beijing University of Chemical Technology, Beijing 100029, P. R. China"
+        },
+        {
+          "name": "Beijing Advanced Innovation Center for Soft Matter Science and Engineering, Beijing University of Chemical Technology, Beijing 100029, P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Yongzheng",
+      "family": "Shi",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering, Laboratory of Electrochemical Process and Technology for Materials, Beijing University of Chemical Technology, Beijing 100029, P. R. China"
+        },
+        {
+          "name": "Beijing Advanced Innovation Center for Soft Matter Science and Engineering, Beijing University of Chemical Technology, Beijing 100029, P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "ORCID": "https://orcid.org/0000-0001-9390-4030",
+      "authenticated-orcid": true,
+      "given": "Yilin",
+      "family": "Sun",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "School of Integrated Circuits and Electronics, Beijing Institute of Technology, Beijing 100081, P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "ORCID": "https://orcid.org/0000-0002-0813-8974",
+      "authenticated-orcid": true,
+      "given": "Jin",
+      "family": "Niu",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering, Laboratory of Electrochemical Process and Technology for Materials, Beijing University of Chemical Technology, Beijing 100029, P. R. China"
+        },
+        {
+          "name": "Beijing Advanced Innovation Center for Soft Matter Science and Engineering, Beijing University of Chemical Technology, Beijing 100029, P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "ORCID": "https://orcid.org/0000-0002-7901-3693",
+      "authenticated-orcid": true,
+      "given": "Feng",
+      "family": "Wang",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering, Laboratory of Electrochemical Process and Technology for Materials, Beijing University of Chemical Technology, Beijing 100029, P. R. China"
+        },
+        {
+          "name": "Beijing Advanced Innovation Center for Soft Matter Science and Engineering, Beijing University of Chemical Technology, Beijing 100029, P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    }
+  ],
+  "container-title": [
+    "Journal of the American Chemical Society"
+  ],
+  "published": {
+    "date-parts": [
+      [
+        2024,
+        3,
+        28
+      ]
+    ]
+  },
+  "published-online": {
+    "date-parts": [
+      [
+        2024,
+        3,
+        28
+      ]
+    ]
+  },
+  "volume": "146",
+  "issue": "17",
+  "page": "11897-11905",
+  "URL": "https://doi.org/10.1021/jacs.4c00882"
+}

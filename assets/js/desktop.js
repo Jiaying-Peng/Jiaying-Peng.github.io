@@ -8,6 +8,39 @@
   const clockTime = document.getElementById("clock-time");
   const aboutDialog = document.getElementById("about-dialog");
   let topZ = 20;
+  const routes = { profile: "profile-window", research: "research-window", publications: "publications-window", activities: "news-window", cv: "cv-window", contact: "contact-window" };
+  const returnFocus = new Map();
+  const smallScreen = window.matchMedia("(max-width: 760px)");
+  windows.forEach(win => { win.tabIndex = -1; });
+  function routeFor(win) { return Object.keys(routes).find(key => routes[key] === win.id) || "profile"; }
+  function setRoute(route) { if (location.hash !== "#" + route) history.pushState(null, "", "#" + route); }
+  function notify(en, zh) {
+    const box = document.getElementById("site-notice");
+    box.textContent = document.documentElement.lang === "zh-CN" ? zh : en;
+    clearTimeout(notify.timer); notify.timer = setTimeout(() => { box.textContent = ""; }, 3500);
+  }
+  function restoreFocus(win) {
+    const target = returnFocus.get(win.id);
+    if (target && target !== document.body && target !== document.documentElement && target.isConnected && target.getClientRects().length) target.focus({preventScroll:true});
+    else document.querySelector(`[data-open="${win.id}"]`)?.focus({preventScroll:true});
+  }
+  function followRoute() {
+    let route; try { route = decodeURIComponent(location.hash.slice(1)) || "profile"; } catch { route = "profile"; }
+    const target = document.getElementById(route);
+    const id = routes[route] || (target?.closest(".app-window")?.id);
+    if (!id) return;
+    openWindow(id, false);
+    if (target && !routes[route]) {
+      target.scrollIntoView({block:"start", behavior:"auto"});
+      if (target.matches(".paper-record")) target.focus({preventScroll:true});
+    }
+  }
+  window.addEventListener("hashchange", followRoute);
+  window.addEventListener("popstate", followRoute);
+  smallScreen.addEventListener("change", () => {
+    if (smallScreen.matches) followRoute();
+    else windows.forEach(win => { win.style.top = ""; win.style.left = ""; });
+  });
 
   function setClock() {
     const now = new Date();
@@ -80,14 +113,19 @@
     });
   }
 
-  function openWindow(id) {
+  function openWindow(id, updateRoute = true) {
     const win = document.getElementById(id);
     if (!win) return;
+    if (!win.contains(document.activeElement)) returnFocus.set(id, document.activeElement);
+    if (smallScreen.matches) windows.forEach(other => { if (other !== win) other.classList.remove("is-open", "is-focused"); });
     win.classList.add("is-open");
     win.classList.remove("is-minimized");
     ensureTaskButton(win);
     focusWindow(win);
     closeStartMenu();
+    if (updateRoute) setRoute(routeFor(win));
+    win.focus({preventScroll:true});
+    if (smallScreen.matches) window.scrollTo({top:0, behavior:"instant"});
   }
 
   function minimizeWindow(win) {
@@ -95,12 +133,21 @@
     win.classList.add("is-minimized");
     const button = taskButtons.querySelector(`[data-window="${win.id}"]`);
     if (button) button.classList.remove("is-active");
+    settleWindow(win);
   }
 
   function closeWindow(win) {
     win.classList.remove("is-open", "is-minimized", "is-focused", "is-maximized");
     const button = taskButtons.querySelector(`[data-window="${win.id}"]`);
     if (button) button.remove();
+    settleWindow(win);
+  }
+  function settleWindow(win) {
+    const remaining = windows.filter(w => w.classList.contains("is-open")).sort((a,b) => Number(b.style.zIndex)-Number(a.style.zIndex))[0];
+    if (remaining) { focusWindow(remaining); setRoute(routeFor(remaining)); }
+    else if (win.id !== "profile-window" || smallScreen.matches) openWindow("profile-window");
+    else history.replaceState(null, "", location.pathname + location.search);
+    restoreFocus(win);
   }
 
   function toggleMaximize(win) {
@@ -197,9 +244,10 @@
 
   document.querySelectorAll(".news-item").forEach((item) => {
     item.addEventListener("click", () => {
-      document.querySelectorAll(".news-item").forEach((other) => other.classList.remove("is-selected"));
+      document.querySelectorAll(".news-item").forEach((other) => { other.classList.remove("is-selected"); other.setAttribute("aria-pressed", "false"); });
       document.querySelectorAll(".news-panel").forEach((panel) => panel.classList.remove("is-active"));
       item.classList.add("is-selected");
+      item.setAttribute("aria-pressed", "true");
       document.getElementById(item.dataset.news).classList.add("is-active");
     });
   });
@@ -208,20 +256,32 @@
     closeStartMenu();
     aboutDialog.classList.add("is-open");
     aboutDialog.setAttribute("aria-hidden", "false");
+    aboutDialog.setAttribute("role", "dialog");
+    aboutDialog.setAttribute("aria-modal", "true");
+    aboutDialog.setAttribute("aria-label", "About this site");
+    document.getElementById("about-close").focus();
   });
 
   function closeAbout() {
+    const wasOpen = aboutDialog.classList.contains("is-open");
     aboutDialog.classList.remove("is-open");
     aboutDialog.setAttribute("aria-hidden", "true");
+    if (wasOpen) startButton.focus();
   }
 
   document.getElementById("about-close").addEventListener("click", closeAbout);
   document.getElementById("about-ok").addEventListener("click", closeAbout);
 
   document.addEventListener("keydown", (event) => {
+    if (event.key === "Tab" && aboutDialog.classList.contains("is-open")) {
+      const controls = [...aboutDialog.querySelectorAll("button")];
+      if (event.shiftKey && document.activeElement === controls[0]) { event.preventDefault(); controls.at(-1).focus(); }
+      if (!event.shiftKey && document.activeElement === controls.at(-1)) { event.preventDefault(); controls[0].focus(); }
+    }
     if (event.key === "Escape") {
       closeStartMenu();
-      closeAbout();
+      if (aboutDialog.classList.contains("is-open")) closeAbout();
+      else if (document.activeElement.closest(".app-window")) closeWindow(document.activeElement.closest(".app-window"));
     }
   });
 
@@ -235,6 +295,15 @@
     focusWindow(win);
   });
 
+  document.querySelectorAll("[data-copy-link]").forEach(button => button.addEventListener("click", async () => {
+    const win = button.closest(".app-window");
+    const hash = location.hash.startsWith("#pub-") && win.id === "publications-window" ? location.hash : "#" + routeFor(win);
+    const url = "https://jiaying.minions.cyou/" + hash;
+    try { await navigator.clipboard.writeText(url); notify("Link copied", "链接已复制"); }
+    catch { notify("Copy this address: " + url, "请复制此地址：" + url); }
+  }));
+  document.querySelectorAll("[data-print]").forEach(button => button.addEventListener("click", () => { openWindow("cv-window"); window.print(); }));
+  followRoute();
   setClock();
-  window.setInterval(setClock, 1000);
+  window.setInterval(setClock, 60000);
 })();

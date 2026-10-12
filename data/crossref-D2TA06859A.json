@@ -1,0 +1,222 @@
+{
+  "DOI": "10.1039/d2ta06859a",
+  "title": [
+    "An interface-enhanced continuous 2D-carbon network enabling high-performance Si anodes for Li-ion batteries"
+  ],
+  "author": [
+    {
+      "given": "Jiaying",
+      "family": "Peng",
+      "sequence": "first",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering, Laboratory of Electrochemical Process and Technology for Materials, Beijing University of Chemical Technology, Beijing, 100029, P. R. China"
+        },
+        {
+          "name": "Beijing Advanced Innovation Center for Soft Matter Science and Engineering, Beijing University of Chemical Technology, Beijing, 100029, P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Rong",
+      "family": "Shao",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering, Laboratory of Electrochemical Process and Technology for Materials, Beijing University of Chemical Technology, Beijing, 100029, P. R. China"
+        },
+        {
+          "name": "Beijing Advanced Innovation Center for Soft Matter Science and Engineering, Beijing University of Chemical Technology, Beijing, 100029, P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Sijie",
+      "family": "Huang",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering, Laboratory of Electrochemical Process and Technology for Materials, Beijing University of Chemical Technology, Beijing, 100029, P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Zhenjiang",
+      "family": "Cao",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering, Laboratory of Electrochemical Process and Technology for Materials, Beijing University of Chemical Technology, Beijing, 100029, P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Tianren",
+      "family": "Zhang",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Tianneng Battery Group Co., Ltd., Zhejiang, 313100, P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Yinliang",
+      "family": "Cao",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Tianneng Battery Group Co., Ltd., Zhejiang, 313100, P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Shuguo",
+      "family": "Zhang",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Tianneng Battery Group Co., Ltd., Zhejiang, 313100, P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Chunchuan",
+      "family": "Xu",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Tianneng Battery Group Co., Ltd., Zhejiang, 313100, P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Yongzheng",
+      "family": "Shi",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering, Laboratory of Electrochemical Process and Technology for Materials, Beijing University of Chemical Technology, Beijing, 100029, P. R. China"
+        },
+        {
+          "name": "Beijing Advanced Innovation Center for Soft Matter Science and Engineering, Beijing University of Chemical Technology, Beijing, 100029, P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Jin",
+      "family": "Niu",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering, Laboratory of Electrochemical Process and Technology for Materials, Beijing University of Chemical Technology, Beijing, 100029, P. R. China"
+        },
+        {
+          "name": "Beijing Advanced Innovation Center for Soft Matter Science and Engineering, Beijing University of Chemical Technology, Beijing, 100029, P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "ORCID": "https://orcid.org/0000-0002-7901-3693",
+      "authenticated-orcid": false,
+      "given": "Feng",
+      "family": "Wang",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering, Laboratory of Electrochemical Process and Technology for Materials, Beijing University of Chemical Technology, Beijing, 100029, P. R. China"
+        },
+        {
+          "name": "Beijing Advanced Innovation Center for Soft Matter Science and Engineering, Beijing University of Chemical Technology, Beijing, 100029, P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    }
+  ],
+  "container-title": [
+    "Journal of Materials Chemistry A"
+  ],
+  "published": {
+    "date-parts": [
+      [
+        2022
+      ]
+    ]
+  },
+  "published-online": {
+    "date-parts": [
+      [
+        2022
+      ]
+    ]
+  },
+  "volume": "10",
+  "issue": "43",
+  "page": "23008-23014",
+  "URL": "https://doi.org/10.1039/d2ta06859a"
+}

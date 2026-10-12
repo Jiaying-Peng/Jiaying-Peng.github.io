@@ -1,0 +1,193 @@
+{
+  "DOI": "10.1039/d2ee01833k",
+  "title": [
+    "Lithium deposition mechanism on Si and Cu substrates in the carbonate electrolyte"
+  ],
+  "author": [
+    {
+      "given": "Junhui",
+      "family": "Sun",
+      "sequence": "first",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering, Beijing Key Laboratory of Electrochemical Process and Technology for Materials, Beijing University of Chemical Technology, Beijing 100029, P. R. China"
+        },
+        {
+          "name": "Beijing Advanced Innovation Center for Soft Matter Science and Engineering, Beijing University of Chemical Technology, Beijing 100029, P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Jiaying",
+      "family": "Peng",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering, Beijing Key Laboratory of Electrochemical Process and Technology for Materials, Beijing University of Chemical Technology, Beijing 100029, P. R. China"
+        },
+        {
+          "name": "Beijing Advanced Innovation Center for Soft Matter Science and Engineering, Beijing University of Chemical Technology, Beijing 100029, P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Terry",
+      "family": "Ring",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Department of Chemical Engineering, University of Utah, Salt Lake City, UT, USA"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "ORCID": "https://orcid.org/0000-0002-1130-1306",
+      "authenticated-orcid": false,
+      "given": "Luisa",
+      "family": "Whittaker-Brooks",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Department of Chemistry, University of Utah, Salt Lake City, UT, USA"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Juner",
+      "family": "Zhu",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Department of Materials Science and Engineering, MIT, Cambridge, MA, USA"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "ORCID": "https://orcid.org/0000-0003-3301-6255",
+      "authenticated-orcid": false,
+      "given": "Dimitrios",
+      "family": "Fraggedakis",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Department of Chemical Engineering, UC Berkeley, Berkeley, CA, USA"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Jin",
+      "family": "Niu",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering, Beijing Key Laboratory of Electrochemical Process and Technology for Materials, Beijing University of Chemical Technology, Beijing 100029, P. R. China"
+        },
+        {
+          "name": "Beijing Advanced Innovation Center for Soft Matter Science and Engineering, Beijing University of Chemical Technology, Beijing 100029, P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "ORCID": "https://orcid.org/0000-0003-0204-3269",
+      "authenticated-orcid": false,
+      "given": "Tao",
+      "family": "Gao",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Department of Chemical Engineering, University of Utah, Salt Lake City, UT, USA"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "ORCID": "https://orcid.org/0000-0002-7901-3693",
+      "authenticated-orcid": false,
+      "given": "Feng",
+      "family": "Wang",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "State Key Laboratory of Chemical Resource Engineering, Beijing Key Laboratory of Electrochemical Process and Technology for Materials, Beijing University of Chemical Technology, Beijing 100029, P. R. China"
+        },
+        {
+          "name": "Beijing Advanced Innovation Center for Soft Matter Science and Engineering, Beijing University of Chemical Technology, Beijing 100029, P. R. China"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    }
+  ],
+  "container-title": [
+    "Energy &amp; Environmental Science"
+  ],
+  "published": {
+    "date-parts": [
+      [
+        2022
+      ]
+    ]
+  },
+  "published-online": {
+    "date-parts": [
+      [
+        2022
+      ]
+    ]
+  },
+  "volume": "15",
+  "issue": "12",
+  "page": "5284-5299",
+  "URL": "https://doi.org/10.1039/d2ee01833k"
+}
