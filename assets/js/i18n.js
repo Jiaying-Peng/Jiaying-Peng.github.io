@@ -5,7 +5,9 @@
 
   const translations = {
     ...window.publicationTranslations,
-    "Home": "首页", "Copy link": "复制链接", "Print CV": "打印简历",
+    "Updated 14 October 2026": "更新于 2026 年 10 月 14 日",
+    "Web CV · Updated 14 October 2026": "网页版简历 · 更新于 2026 年 10 月 14 日",
+    "Home": "首页", "← Home": "← 首页", "Copy link": "复制链接", "Print CV": "打印简历",
     "Read publications": "查看论文", "View / print CV": "查看／打印简历",
     "Switch to Chinese": "切换为中文", "Skip to content": "跳到正文",
     "Retro language animation": "复古语言切换动画",
@@ -330,7 +332,7 @@
 
     while (node) {
       const parent = node.parentElement;
-      const ignored = !parent || parent.closest("script, style, noscript, [data-en], [data-i18n-ignore]");
+      const ignored = !parent || parent.closest("script, style, noscript, .menu-bar, [data-en], [data-i18n-ignore]");
 
       if (!ignored && normalize(node.nodeValue)) {
         if (!originalText.has(node)) originalText.set(node, node.nodeValue);
@@ -400,7 +402,7 @@
     const startLabel = document.querySelector("#start-menu [data-language-switch] strong");
     const startHint = document.querySelector("#start-menu [data-language-switch] small");
     if (startLabel) startLabel.textContent = language === CHINESE ? "切换语言" : "Language";
-    if (startHint) startHint.textContent = language === CHINESE ? "切换为英文" : "Switch to Chinese";
+    if (startHint) startHint.textContent = language === CHINESE ? "重启并进入英文" : "Restart in Chinese";
   }
 
   function applyLanguage(language, announce = true) {
@@ -415,6 +417,7 @@
 
     translateTextNodes(language);
     translateAttributes(language);
+    translateMenus(language);
     document.querySelectorAll("[data-en][data-zh]").forEach((element) => { element.textContent = language === CHINESE ? element.dataset.zh : element.dataset.en; });
     updateLanguageControls(language);
 
@@ -486,8 +489,7 @@
 
   function switchLanguage() {
     const language = currentLanguage === CHINESE ? ENGLISH : CHINESE;
-    if (document.getElementById("retro-animation").checked) restartInto(language);
-    else { applyLanguage(language); saveLanguage(language); }
+    restartInto(language);
   }
   applyLanguage(currentLanguage, false);
 

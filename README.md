@@ -1,7 +1,8 @@
 # Jiaying Peng — Academic Desktop
 
-A bilingual, static academic homepage with a Windows 98 desktop on larger
-screens and a single-column reading layout on phones.
+A bilingual, static academic homepage with the original Windows 98 desktop,
+classic pixel icons, application menus and rebooting language switch. Responsive
+layouts preserve the desktop metaphor on smaller screens.
 
 - Primary: https://jiaying.minions.cyou/
 - GitHub Pages fallback: https://jiaying-peng.github.io/
@@ -39,15 +40,18 @@ browser Back, keyboard focus, BibTeX downloads and CV printing before publishing
 
 Public routes: `#profile`, `#research`, `#publications`, `#activities`, `#cv`,
 `#contact`, and each stable paper ID, e.g. `#pub-2026`. Refresh and browser history
-restore the target window. Translation is immediate by default; the optional
-retro animation is available in Start. Basic content remains readable without JS.
+restore the target window. Language switching uses the original simulated
+Windows restart by default (with reduced-motion support). File/Edit/View and
+other classic menus contain working commands for copying links, citations,
+printing and window controls. Basic content remains readable without JS.
 
 ## Assets and scholarly presentation
 
 - `assets/css/academic-desktop.css`: responsive layout and print styling.
 - `assets/js/desktop.js`: windows, routing, focus and clipboard actions.
 - `assets/js/i18n.js`: language switching and general UI translations.
-- `assets/icons/`: original SVG desktop symbols, under the project MIT license.
+- `assets/icons/`: locally hosted copies of the original classic PNG icons; see
+  that directory's provenance note. The replacement SVG icons are unused.
 - `assets/figures/`: original conceptual diagrams, **not experimental data**.
 - `assets/vendor/`: pinned 98.css 0.1.20 and its bundled fonts; MIT license included.
 
@@ -91,3 +95,13 @@ release, and verify origin HTTPS and public content before re-enabling sync.
 Otherwise the next scheduled run would redeploy `master`. For Caddy changes,
 back up `/etc/caddy/Caddyfile`, validate before reload, and verify the knowledge
 base `/api/health` plus `/duo/`. Never alter their data or VPN configuration.
+
+## Preserve the established design
+
+The 2026-10-14 correction restores the visual baseline from commit `505735e`.
+Keep the classic icons, original fonts, beveled controls, Explorer/Notepad
+window layouts, desktop/taskbar and simulated language reboot. Functional or
+accessibility work should fit into that design rather than silently replacing
+it with flat cards, generic icons, text-only mobile navigation or instant
+language switching. Publication data, citations, routes, focus management,
+local asset caching and atomic deployment remain in place.

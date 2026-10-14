@@ -145,7 +145,6 @@
   function settleWindow(win) {
     const remaining = windows.filter(w => w.classList.contains("is-open")).sort((a,b) => Number(b.style.zIndex)-Number(a.style.zIndex))[0];
     if (remaining) { focusWindow(remaining); setRoute(routeFor(remaining)); }
-    else if (win.id !== "profile-window" || smallScreen.matches) openWindow("profile-window");
     else history.replaceState(null, "", location.pathname + location.search);
     restoreFocus(win);
   }
@@ -303,6 +302,87 @@
     catch { notify("Copy this address: " + url, "请复制此地址：" + url); }
   }));
   document.querySelectorAll("[data-print]").forEach(button => button.addEventListener("click", () => { openWindow("cv-window"); window.print(); }));
+  // Keep the original Win98 menu labels; useful additions live inside these menus.
+  const retroPopup = document.createElement("div");
+  retroPopup.className = "retro-popup window";
+  retroPopup.setAttribute("role", "menu");
+  retroPopup.hidden = true;
+  document.body.appendChild(retroPopup);
+  let menuTrigger = null;
+  function hideRetroMenu(restore = false) {
+    retroPopup.hidden = true;
+    if (menuTrigger) {
+      menuTrigger.setAttribute("aria-expanded", "false");
+      if (restore) menuTrigger.focus({preventScroll:true});
+    }
+  }
+  async function copyWindowLink(win) {
+    const hash = location.hash.startsWith("#pub-") && win.id === "publications-window" ? location.hash : "#" + routeFor(win);
+    const url = "https://jiaying.minions.cyou/" + hash;
+    try { await navigator.clipboard.writeText(url); notify("Link copied", "链接已复制"); }
+    catch { notify("Copy this address: " + url, "请复制此地址：" + url); }
+  }
+  document.querySelectorAll("[data-retro-menu]").forEach(button => {
+    button.addEventListener("click", () => {
+      if (menuTrigger === button && !retroPopup.hidden) { hideRetroMenu(true); return; }
+      hideRetroMenu();
+      menuTrigger = button;
+      const win = button.closest(".app-window");
+      const print = () => { openWindow("cv-window"); window.print(); };
+      const showAbout = () => document.getElementById("shutdown-button").click();
+      const entries = {
+        file: [["Home", "首页", () => openWindow("profile-window")], ["Download citations (.bib)", "下载引用 (.bib)", "citations/publications.bib"], ["Print CV...", "打印简历…", print], ["Close", "关闭", () => closeWindow(win)]],
+        edit: [["Copy link", "复制链接", () => copyWindowLink(win)]],
+        view: [["Maximize / Restore", "最大化／还原", () => toggleMaximize(win)], ["Minimize", "最小化", () => minimizeWindow(win)]],
+        go: [["Research", "研究方向", () => openWindow("research-window")], ["Publications", "科研成果", () => openWindow("publications-window")], ["Activities", "学术动态", () => openWindow("news-window")]],
+        favorites: [["Google Scholar", "Google Scholar", "https://scholar.google.com/citations?user=eQFT3u4AAAAJ"], ["ORCID", "ORCID", "https://orcid.org/0009-0003-4482-2145"]],
+        help: [["About this site...", "关于本网站…", showAbout]],
+        search: [["Browse publications", "浏览科研成果", () => openWindow("publications-window")]],
+        message: [["Academic activities", "学术动态", () => openWindow("news-window")]],
+        print: [["Print CV...", "打印简历…", print]]
+      };
+      retroPopup.replaceChildren();
+      for (const [en, zh, action] of entries[button.dataset.retroMenu] || entries.help) {
+        const item = document.createElement(typeof action === "string" ? "a" : "button");
+        item.textContent = document.documentElement.lang === "zh-CN" ? zh : en;
+        item.setAttribute("role", "menuitem");
+        if (typeof action === "string") {
+          item.href = action;
+          if (action.endsWith(".bib")) {
+            item.href = document.getElementById("all-citations").href;
+            item.download = "publications.bib";
+          }
+          else { item.target = "_blank"; item.rel = "noopener"; }
+          item.addEventListener("click", () => hideRetroMenu(true));
+        } else {
+          item.type = "button";
+          item.addEventListener("click", () => { hideRetroMenu(true); action(); });
+        }
+        retroPopup.appendChild(item);
+      }
+      const rect = button.getBoundingClientRect();
+      retroPopup.hidden = false;
+      retroPopup.style.left = Math.max(2, Math.min(rect.left, window.innerWidth - retroPopup.offsetWidth - 2)) + "px";
+      retroPopup.style.top = Math.max(2, Math.min(rect.bottom, window.innerHeight - retroPopup.offsetHeight - 42)) + "px";
+      button.setAttribute("aria-expanded", "true");
+      retroPopup.firstElementChild.focus();
+    });
+  });
+  retroPopup.addEventListener("keydown", event => {
+    const items = [...retroPopup.children];
+    const index = items.indexOf(document.activeElement);
+    if (["ArrowDown", "ArrowUp", "Home", "End"].includes(event.key)) {
+      event.preventDefault();
+      const next = event.key === "Home" ? 0 : event.key === "End" ? items.length - 1 : (index + (event.key === "ArrowDown" ? 1 : -1) + items.length) % items.length;
+      items[next].focus();
+    } else if (event.key === "Escape") { event.preventDefault(); event.stopPropagation(); hideRetroMenu(true); }
+    else if (event.key === "Tab") hideRetroMenu();
+  });
+  document.addEventListener("click", event => {
+    if (!event.target.closest("[data-retro-menu], .retro-popup")) hideRetroMenu();
+  });
+  document.addEventListener("academic-language-change", () => hideRetroMenu());
+
   followRoute();
   setClock();
   window.setInterval(setClock, 60000);

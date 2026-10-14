@@ -28,12 +28,12 @@ def render():
     output['citations/publications.bib']='\n'.join(bib(p) for p in papers)
     groups=[]
     for group, label, role in [('lead-author-papers','Lead-author Papers',False),('collaborative-papers','Collaborative Papers',True)]:
-        groups.append(f'<div class="output-group" id="{group}"><img src="assets/icons/folder-open-16x16.svg" alt=""><strong>{label}</strong></div>')
+        groups.append(f'<div class="output-group" id="{group}"><img src="assets/icons/folder-open-16x16.png" alt=""><strong>{label}</strong></div>')
         for p in papers:
             if (p['role']=='CO-AUTHOR') != role:continue
             author=', '.join(p['authors'])
             groups.append(f'''<article class="publication-file paper-record" id="{p['id']}" tabindex="-1" role="listitem">
-              <div class="file-copy"><h3><a href="https://doi.org/{p['doi']}" target="_blank" rel="noopener">{title(p)}</a></h3>
+              <img src="assets/icons/html-32x32.png" alt=""><div class="file-copy"><h3><a href="https://doi.org/{p['doi']}" target="_blank" rel="noopener">{title(p)}</a></h3>
               <p class="paper-meta">{meta(p)} {local(p['role'],roles[p['role']],'b','class="output-badge"')} {local('COVER ARTICLE','封面论文','b','class="output-badge cover"') if p['cover'] else ''}</p>
               <details><summary>{local('Authors & citation','作者与引用')}</summary><p class="paper-authors">{esc(author)}</p><p>{esc(p['journal'])}. {p['year']}. DOI: {esc(p['doi'])}</p></details>
               {summary(p)}{links(p)}</div></article>''')
@@ -43,7 +43,7 @@ def render():
         en,zh=topics[p['id']]
         highlights+=f'''<article class="highlight-card"><a href="#{p['id']}"><img src="assets/figures/{p['id']}.svg" alt="" width="300" height="126"><span class="highlight-journal">{esc(p['journal_short'])} · {p['year']}</span>{local(en,zh,'h3')}</a>{local('First author','第一作者','small')}</article>'''
     highlights+='</div>'+local('Concept illustrations · not experimental data','概念示意图 · 非实验数据','p','class="figure-note"')+'</section>'
-    updates=''.join(f'<article class="home-update"><time datetime="{p["year"]}">{p["year"]}</time><div><strong>{esc(p["journal_short"])}</strong>{summary(p)}<a href="#{p["id"]}">{local("Read this study →","查看研究 →")}</a></div></article>' for p in featured[:1])
+    updates=''.join(f'<article class="home-update"><time datetime="{p["year"]}">{p["year"]}</time><div><strong>{esc(p["journal_short"])}</strong>{summary(p)}<a href="#{p["id"]}">{local("Read this study →","查看研究 →")}</a></div></article>' for p in featured)
     news_buttons=''.join(f'<button class="news-item {"is-selected" if i==0 else ""}" type="button" data-news="news-{p["id"]}" aria-pressed="{str(i==0).lower()}"><span>{p["year"]} · {esc(p["journal_short"])}</span><strong>{title(p)}</strong></button>' for i,p in enumerate(featured))
     news_panels=''.join(f'<div id="news-{p["id"]}" class="news-panel {"is-active" if i==0 else ""}">{title(p,"h2")}<p class="news-meta">{meta(p)}</p>{summary(p)}{links(p)}</div>' for i,p in enumerate(featured))
     cv=''.join(f'<li><strong>{esc(p["journal_short"])}</strong> ({p["year"]}). {title(p)} {local(p["role"],roles[p["role"]])}. <a href="https://doi.org/{p["doi"]}">DOI ↗</a></li>' for p in papers if p['role']!='CO-AUTHOR')
